@@ -1,0 +1,952 @@
+<!doctype html>
+<html>
+	<!-- setting up styles -->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Version Control</title>
+
+		<!--link rel="stylesheet" href="css/reset.css"-->
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/dark_texture.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<!-- script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script> -->
+	</head>
+
+	<!-- Actual slides -->
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- slide -->
+				<section id="title" data-background-image="./figures/coding4.jpg">
+					<h1>Using git</h1>
+					<p style="font-size: 1em">
+						... it is actually quite clever!
+					</p>
+					<p style="font-size: 1.2em">
+						<b>Christian Olsen</b> <br></br>
+						<span style="font-size: 0.7em"> <a href="https://chrede88.github.io/git-presentation/">https://chrede88.github.io/git-presentation/</a> </span>
+					</p>
+					<p>
+						April 23rd, 2020
+					</p>
+					<aside class="notes">
+						The talk will go through all the steps needed to setup a work repository. Feel free to follow along on your own machines.
+					</aside>
+				</section>
+
+				<!-- slide -->
+				<section id="history">
+					<h3>History of git</h3>
+					<div style="width: 95%; margin-left: auto; margin-right: auto;">
+						<ul>
+							<li>
+								Created by Linus Torvalds in 2005 while he was developing the Linux kernel.
+							</li>
+							<li>
+								The name can be interpreted in different ways:
+								<ul style="font-size: 0.9em">
+									<li>
+										Random three letter combination.
+									</li>
+									<li>
+										British slang for stupid or despicable.
+									</li>
+									<li>
+										"global information tracker" - when things are working well.
+									</li>
+									<li>
+										"goddamn idiotic truckload of shit" - when it isn't!
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>
+								git was written because BitKeeper stopped supporting Linux.
+							</li>
+							<li>
+								Names comes from the source code Readme file.
+							</li>
+							<li>
+								Linus called it "the stupid content tracker".
+							</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- slide -->
+				<section id="why_git">
+					<h3>Why use version control?</h3>
+					<div style="display:flex;">
+						<div style="width: 45%; margin-left: auto; margin-right: 2%;">
+							<img class="white" style="width: 100%; margin: auto;" src="./figures/phd.png"> </img>
+						</div>
+						<div style="width: 45%; margin-top: 6%; margin-right:auto;">
+							<ul>
+								<li>
+									Version control is like an unlimited 'undo'.
+								</li>
+								<li>
+									Allows many people to work in parallel.
+								</li>
+								<li>
+									Easy to compare versions and find old revisions.
+								</li>
+							</ul>
+						</div>
+					</div>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<!-- slide -->
+				<section id="repository">
+					<h3>Repositories</h3>
+					<div style="display:flex;">
+						<div style="width: 45%; margin-left: auto; margin-right: 2%; margin-top: 5%;">
+							<img class="white" style="width: 100%; margin: auto;" src="./figures/git_repo.svg"> </img>
+						</div>
+						<div style="width: 45%; margin-right: auto; margin-left: 2%;">
+							<ul>
+								<li>
+									A repository holds all your versions.
+								</li>
+								<li>
+									Each layer can be easily accessed.
+								</li>
+								<li>
+									Each layer in a repository can be identified by the assosiated SHA-1 hash.
+								</li>
+							</ul>
+						</div>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>
+								Each layer represents a version of the repository.
+							</li>
+							<li>
+								Hashing is used in a lot of different areas. Manly cryptograpy.
+							</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- slide -->
+				<section id="basic_usage">
+					<section id="track_commit">
+						<h3>Basic Usage</h3>
+						<div style="display:flex;">
+							<div style="width: 45%; margin-left: auto; margin-right: 2%;">
+								<img class="white" style="width: 100%; margin: auto;" src="./figures/git_straight_tracking.png"> </img>
+								<img class="white" style="width: 100%; margin: auto;" src="./figures/git_branch_tracking.png"> </img>
+							</div>
+							<div style="width: 45%; margin-right: auto; margin-left: 2%;">
+								<ul>
+									<li>
+										Add changes incremental and go back at any point.
+									</li>
+									<li>
+										Spilt your documents into multiple branches, for better collaboration.
+									</li>
+								</ul>
+							</div>
+						</div>
+						<aside class="notes">
+							I will mention branches quite a few times before we get to them. Sorry!
+						</aside>
+					</section>
+
+					<section id="merge">
+						<h3>Basic Usage</h3>
+						<div style="display:flex;">
+							<div style="width: 45%; margin-left: auto; margin-right: 2%;">
+								<img class="white" style="width: 100%; margin: auto;" src="./figures/git_branch_merging.png"> </img>
+							</div>
+							<div style="width: 45%; margin-right: auto; margin-left: 2%;">
+								<ul>
+									<li>
+										Merge multiple versions together without conflicts.
+									</li>
+								</ul>
+							</div>
+						</div>
+						<aside class="notes">
+						</aside>
+					</section>
+				</section>
+
+				<!-- slide -->
+				<section id="setting_up_git">
+					<section id="install">
+						<h3>Setting up git</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									Download from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.
+								</li>
+								<li>
+									Or install via your favorite package manager.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% brew install git # macOS
+								% apt-get install git # Ubuntu
+							</code></pre>
+							<ul>
+								<li>
+									Setup user information, so git knowns who is making changes.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% git config --global user.name "JohnDoe"
+								% git config --global user.email "JohnDoe@unknown.com"
+								% git config --global core.editor “atom --wait”
+								% git config --global core.autocrlf true # Windows
+							</code></pre>
+						</div>
+						<aside class="notes">
+							Windows: If git doesn't work in the command line after intalling, try "Git Bash".
+						</aside>
+					</section>
+
+					<section id="alternate_editor_setup">
+						<h3>Setup for other text editors</h3>
+						<div style="width: 100%; margin-left: auto; margin-right: auto;">
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% git config --global core.editor “atom --wait”
+								% git config --global core.editor "'c:/program files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+								% git config --global core.editor "emacs"
+								% git config --global core.editor "vim"
+								% git config --global core.editor "gedit --wait --new-window"
+								% git config --global core.editor "open -W -n" # TextEdit on mac
+							</code></pre>
+						</div>
+						<aside class="notes">
+						</aside>
+					</section>
+
+					<section id="alternate_email">
+						<h3>Using an alternate email</h3>
+						<p>
+							Github allows you to hide your email and will provide you with an alternate email.<br></br>
+							Find this setting under "Settings/Emails".
+						</p>
+						<p style="font-size:0.5em">
+							Something like: 0123456+username@users.noreply.github.com
+						</p>
+						<pre><code data-trim class="Ruby">
+							% git config --global user.email "secret@email.com"
+						</code></pre>
+						<aside class="notes">
+							Settings --> Emails --> Keep my email private & Block from command line
+						</aside>
+					</section>
+				</section>
+
+				<!-- slide -->
+				<section id="check_setup">
+					<h3>Let us check the setup</h3>
+					<pre><code data-trim data-line-numbers class="Ruby">
+						% git config --global --list
+						user.name=JohnDoe
+						user.email=JohnDoe@unknown.com
+						core.editor=atom --wait
+					</code></pre>
+					<p>
+						Using a secondary remote git service?
+					</p>
+					<pre><code data-trim class="Ruby">
+						% git config user.email "SomeOther@email.com" # for each repo
+					</code></pre>
+					<aside class="notes">
+						Each repository can have it's own config. Globals will be added be default to newly created repositories
+					</aside>
+				</section>
+
+				<!-- slide -->
+				<section id="github" data-background-image="./figures/version_control.jpg">
+					<div style="text-align: center; position: relative; top: -260px;">
+						<h3>Let us do some git!</h3>
+					</div>
+				</section>
+
+				<!-- slide -->
+				<section id="create_repo">
+					<section id="init">
+						<h3>Creating a repository</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									Let us first create a folder that will serve as a container for our new repository.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% mkdir beer # create folder
+								% cd beer # move into folder
+								% git init # init a repository
+							</code></pre>
+							<ul>
+								<li>
+									Check that the .git folder was actually created.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% ls -a # list all files/folders
+								. .. .git
+							</code></pre>
+						</div>
+						<aside class="notes">
+							<ul>
+								<li>
+									I keep all my git repositories in one single folder, but that's not required.
+								</li>
+								<li>
+									If you don't like beer, pick some other subject:)
+								</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section id="add_content">
+						<h3>Let us add some content</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									Let us create a document called <strong>cariboo.txt</strong>.
+								</li>
+							</ul>
+							<pre><code data-trim class="Ruby">
+								% atom cariboo.txt
+							</code></pre>
+							<img class="white" style="width: 100%; margin: auto;" src="./figures/cariboo.png"> </img>
+						</div>
+						<aside class="notes">
+						</aside>
+					</section>
+
+					<section id="check_status">
+						<h3>Let us check the status of our repository.</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<pre><code data-trim class="Ruby">
+								% git status
+							</code></pre>
+							<ul>
+								<li>
+									git tells us that there are <strong>untracked</strong> changes.
+									So let us add them to the <strong>staging area</strong>.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% git add cariboo.txt # adds one file at a time
+								% git add . # use . to add all changes
+							</code></pre>
+							<ul>
+								<li>
+									Check the status again. This time git tells us that it has added our file to the staging area.
+								</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							<ul>
+								<li>
+									git status will say "modified" if the file already exists.
+								</li>
+								<li>
+									git add will tells us how to remove stuff from the staging area.
+								</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section id='commit_content'>
+						<h3>Let us commit our changes</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<pre><code data-trim class="Ruby">
+								% git commit -m "Adding cariboo.txt"
+							</code></pre>
+							<ul>
+								<li>
+									Try checking the status once more. This time git tells us that there isn't any new changes.
+								</li>
+								</ul>
+								<pre><code data-trim data-line-numbers class="Ruby">
+									On branch master
+									nothing to commit, working tree clean
+								</code></pre>
+								<ul>
+									<li>
+									Let us review what we have done so far.
+								</li>
+							</ul>
+							<br></br>
+							<img class="white" style="width: 55%; margin: auto;" src="./figures/git-staging-area.svg"> </img>
+						</div>
+						<aside class="notes">
+							The staging area is where everyting is collocted before making a commit. You can keep adding to the staging area.
+						</aside>
+					</section>
+
+					<section id="add_more_content">
+						<h3>Try to add some more content</h3>
+						<p>
+							Add another line in the document and go through the steps to commit the changes to the repository.
+						</p>
+						<pre><code data-trim data-line-numbers class="Ruby">
+							% git status # check the status
+							% git add . # add the changes to the staging area
+							% git status # check the status again
+							% git commit -m "Adding another line of text"
+						</code></pre>
+						<aside class="notes">
+							Notice that the unstaging method git tells us to use is not the same anymore.
+						</aside>
+					</section>
+				</section>
+
+				<!-- slide -->
+				<section id="history_logs">
+					<section id="checking_logs">
+						<h3>Let us look at the logs</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									git keeps a nice log for each branch in a repository.
+								</li>
+							</ul>
+							<pre><code data-trim class="Ruby">
+								% git log # prints the log
+							</code></pre>
+							<ul>
+								<li>
+									The log cotains a block for each of our commits.
+								</li>
+							</ul>
+							<pre><code data-trim class="zsh">
+								commit 0123456789abcdef0123456789abcdef01234567
+								Author: JohnDoe JohnDoe@unknown.com
+								Date: Thu Jan 1 00:00:00 1970 -0000
+
+									Adding cariboo.txt
+							</code></pre>
+						</div>
+						<aside class="notes">
+						</aside>
+					</section>
+
+					<section id="checkout">
+						<h3>Going back to an older commit</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									Going back through the repository is easy. We can use the wildcard <strong>HEAD</strong>.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% git checkout HEAD~1 # going back one step
+								% git checkout 0123456 # using the SHA1 hash
+							</code></pre>
+							<img class="white" style="width: 45%; margin: auto; margin-top: 2%;" src="./figures/git-checkout.svg"> </img>
+						</div>
+						<aside class="notes">
+							Notice that git tells us that we are in a DETACHED HEAD state. We picked a slice and are now veiwing it on it's own.
+							We have to be a bit careful here. One shouldn't work on a DETACHED HEAD.
+							The feature is really if we want to create a new branch from an earlier version.
+						</aside>
+					</section>
+
+					<section id="checkout_reverse">
+						<h3>Moving forward to the latest commit</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									We can move forward using HEAD.
+								</li>
+								<li>
+									To get out of the detached HEAD state, use one of two options:
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% git checkout - # only works for a fully detached HEAD
+								% git checkout master # always works
+							</code></pre>
+						</div>
+						<aside class="notes">
+						</aside>
+					</section>
+
+					<section id="diff">
+						<h3>Comparing commits</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									We can also directly compare the differences between commits, using <strong>diff</strong>.
+								</li>
+							</ul>
+							<pre><code data-trim class="Ruby">
+								% git diff HEAD~1 cariboo.txt
+								% git difftool HEAD~1 cariboo.txt # opens in a diff tool
+							</code></pre>
+							<ul>
+								<li>
+									git should print both lines in our document, but notice that the second line is green.
+									git tells us that the second line is added compared to previous commit.
+								</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							We haven' set up difftool, so git will ask us how we want to procide.
+						</aside>
+					</section>
+
+					<section id="revet">
+						<h3>Discarding commits</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									What if we realize that our last commit was full of spelling mistakes? Can we take it back.
+								</li>
+							</ul>
+							<pre><code data-trim class="Ruby">
+								% git revert HEAD # or some older commit
+							</code></pre>
+							<ul>
+								<li>
+									git will open a file in your prefered editor and ask you to type a commit comment.
+									Close the file when done.
+								</li>
+								<li>
+									Open the file and check what happend. Next check the log, there should be a new commit reverting our second commit.
+								</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							<ul>
+								<li>
+									Will only work with a clean working tree.
+									See also: git restore to restore a file from an old commit
+								</li>
+								<li>
+									It wont erase the commit, we can still get to by using git checkout
+								</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+
+				<section id="branches">
+					<section id="branches_overveiw">
+						<h3>Branches</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<p>
+								Branches is mostly used when more than one person is collaborating in a repository.
+								All past commits are carried over when a new branch is created.
+							</p>
+							<img class="white" style="width: 55%; margin: auto; margin-top: 2%" src="./figures/git-tree.svg"> </img>
+							<p style="font-size:0.5em; margin-top:-1%">
+								Our three past commits along the Master branch. And a new branch in magenta.
+							</p>
+						</div>
+						<aside class="notes">
+							Remember how I said that checkout is really useful when combinded with branches.
+						</aside>
+					</section>
+
+					<section id="create_branch">
+						<h3>Let us create a new branch</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									We can create a new branch at any point along the tree.
+									We could go back using <strong>checkout</strong> and branch off.
+								</li>
+								<li>
+									Let us branch off right here.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% git branch more_beer # create new branch
+								% git checkout more_beer # move to new branch
+								% git checkout -b more_beer # doing both commands in one go
+							</code></pre>
+							<ul>
+								<li>
+									Try looking at the log once again, what do you see?
+								</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							<ul>
+								<li>
+									Executing "git branch" will list all the branches in the repository.
+								</li>
+								<li>
+									Use "git diff" to find the correct commit and then branch off using "git checkout -b".
+								</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section id="new_content_branch">
+							<h3>Let us develop on this branch</h3>
+							<div style="width: 95%; margin-left: auto; margin-right: auto;">
+								<ul>
+									<li>
+										Let us add some more text to cariboo.txt.
+									</li>
+									<li>
+										Let us also create a new text file called 33acres.txt and add  some content to that one.
+									</li>
+								</ul>
+								<pre><code data-trim data-line-numbers class="Ruby">
+									% atom cariboo.txt # open and add more text
+									% atom 33acres.txt # create new file
+									% git add . # add everyting to the staging area
+									% git commit -em "Adding new file 33acres.txt"
+								</code></pre>
+								<ul>
+									<li>
+										Notice the extra "e" in the last line. This opens your editor and allows you to futher edit your comment.
+									</li>
+								</ul>
+							</div>
+							<aside class="notes">
+								The top comment line shouldn't be longer than 50 characters. Then add a blanck line before the rest of the commit message.
+							</aside>
+					</section>
+
+					<section id="merge_branch">
+						<h3>Merging the branch</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									Now that we have added some more content, let us merge more_beer back into master.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% git checkout master # move back to master
+								% git merge more_beer
+							</code></pre>
+							<img class="white" style="width: 55%; margin: auto; margin-top: 2%" src="./figures/git-tree.svg"> </img>
+						</div>
+						<aside class="notes">
+							If we still had some un-commited changes, git would refuse the switch branch. That's nice!:)
+						</aside>
+					</section>
+
+					<section id="remove_branch">
+						<h3>Removing the branch</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									Now that we have merged more_beer into master, we don't need that branch anymore.
+								</li>
+							</ul>
+							<pre><code data-trim class="Ruby">
+								% git branch -d more_beer # -d only remove if fully merged
+							</code></pre>
+							<img class="white" style="width: 55%; margin: auto; margin-top: 2%" src="./figures/git-tree-simple.svg"> </img>
+						</div>
+						<aside class="notes">
+							We could leave the branch, but we might as well just create a new one later. Don't get emotionally attached to branch;)
+						</aside>
+					</section>
+				</section>
+
+				<!-- slide -->
+				<section id="remote">
+					<section id="create_github">
+						<h3>Using remote repositories</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									It is time to publish our repository on Github. Sooo exciting:)
+								</li>
+								<li>
+									First we have to create a repository on Github.
+								</li>
+								<li>
+									No need at make a README.md file, we will do that on the commandline.
+								</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							Head over to Github and create a repository called beer.
+						</aside>
+					</section>
+
+					<section data-background-iframe="https://github.com/" data-background-interactive id="make_repo">
+						<aside class="notes">
+						</aside>
+					</section>
+
+					<section id="make_readme">
+						<h3>Make a README file</h3>
+						<div style="width: 95%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									Create a new file called <strong>README.md</strong>.
+									Add lines 2 & 3 to the README file.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% atom README.md # Markdown format
+							</code></pre>
+							<ul>
+								<li>
+									Commit your README file to the master branch.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								% git add .
+								% git commit -m "Adding a README"
+							</code></pre>
+						</div>
+						<aside class="notes">
+							Headlines are mark by # in Markdown
+						</aside>
+					</section>
+
+					<section id="publish_to_github">
+						<h3>Ready to publish</h3>
+						<div style="width: 100%; margin-left: auto; margin-right: auto;">
+							<ul>
+								<li>
+									We are now ready to publish our repository. Use the second line if you are using a ssh key.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="zsh">
+								% git remote add origin https://github.com/&lt;username&gt;/beer.git
+								% git remote add origin git@github.com:&lt;username&gt;/beer.git
+								% git remote -v # check that it worked
+								origin	https://github.com/&lt;username&gt;/beer.git (fetch)
+								origin	https://github.com/&lt;username&gt;/beer.git (push)
+							</code></pre>
+							<ul>
+								<li>
+									And now <strong>push</strong> the master branch to your remote repository.
+								</li>
+							</ul>
+							<pre><code data-trim class="Ruby">
+								% git push origin master
+							</code></pre>
+						</div>
+						<aside class="notes">
+							<ul>
+								<li>
+									"origin" is the name of the remote repository.
+								</li>
+								<li>
+									Setting up ssh: Settings --> SSH & GPG keys --> New SSH key
+								</li>
+								<li>
+									If you don't have a SSH key already, you'll have to make one first.
+								</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section data-background-iframe="https://github.com/chrede88" data-background-interactive id="check_publish">
+					</section>
+				</section>
+
+				<!-- slide -->
+				<section id="collaborating">
+					<section id="ground_rules">
+							<h3>Collaborating/Contributing</h3>
+							<div style="width: 95%; margin-left: auto; margin-right: auto;">
+								<ul>
+									<li>
+										The frist rule of git is: Don't push directly to the master branch!
+									</li>
+									<li>
+										The second rule of git is: Seriously, don't push directly to the master branch.
+									</li>
+									<li>
+										Make a new branch, make sure everyting works and then make a <strong>Pull request</strong> on Github.
+									</li>
+									<li>
+										Let us go through the required steps.
+									</li>
+								</ul>
+							</div>
+					</section>
+
+					<section id="clone_fork">
+							<h3>Cloning vs Forking</h3>
+							<div style="width: 95%; margin: auto;">
+								<ul>
+									<li>
+										Use <strong>clone</strong> to get a local copy of a remote repository.
+									</li>
+									<li>
+										If you are contributing to other peoples projects, you should <strong>fork</strong> their repository first.
+									</li>
+								</ul>
+								<img class="white" style="width: 100%; margin: auto; margin-top: 2%;" src="./figures/github-fork.png"> </img>
+							</div>
+							<aside class="notes">
+								Forks are like branches, but for hole repositories!
+							</aside>
+					</section>
+
+					<section id="clone_repo">
+						<h3>Cloning a repository</h3>
+						<div style="width: 95%; margin: auto;">
+							<ul>
+								<li>
+									Let us pretent that you want to contribute to my very cool repository "CampusCoffee".
+								</li>
+								<li>
+									Find it on Github and fork it, so you have your own copy. My username is <strong>Chrede88</strong>.
+								</li>
+								<li>
+									Once you have forked it, clone your own copy.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="zsh">
+								% git clone https://github.com/&lt;username&gt;/CampusCoffee.git
+								% git clone git@github.com:&lt;username&gt;/CampusCoffee.git
+							</code></pre>
+						</div>
+						<aside class="notes">
+							Remember to move out of the current repository before cloning.
+						</aside>
+					</section>
+
+					<section id="make_local_change">
+						<h3>Contribute to my repository</h3>
+						<div style="width: 95%; margin: auto;">
+							<ul>
+								<li>
+									Make a new branch, make some changes etc. & commit to the new branch.
+								</li>
+								<li>
+									Push the chages to your remote repository. The push command will create a new branch in the remote repository automatically.
+								</li>
+						</div>
+					</section>
+
+					<section id="forgot?">
+						<h3>Full command tree</h3>
+						<div style="width: 95%; margin: auto;">
+								<p>
+									In case you forgot ;)
+								</p>
+								<pre><code data-trim data-line-numbers class="Ruby">
+									% git checkout -b &lt;newbranch&gt; # make new branch
+									# make your changes
+									% git add . # add to staging area
+									% git commit -m "Made some changes" # commit to local repo
+									% git push origin &lt;newbranch&gt; # push to remote repo
+								</code></pre>
+						</div>
+						<aside class="notes">
+							Repositories cloned from Github is always called origin as default.
+						</aside>
+					</section>
+
+					<section id="pullrequest_to_me">
+							<h3>The last step</h3>
+							<div style="width: 95%; margin: auto;">
+									<ul>
+										<li>
+											Now your changes are incorporated into your version of CampusCoffee on Github.
+										</li>
+										<li>
+											Make a pull request to the master branch of my repository.
+										</li>
+										<li>
+											You have now successfully contributed to a project :)
+										</li>
+									</ul>
+									<img class="white" style="width: 100%; margin: auto; margin-top: 2%;" src="./figures/github-pullrequest.png"> </img>
+									<!--img class="white" style="width: 100%; margin: auto; margin-top: 2%;" src="./figures/github-pullrequest2.png"> </img-->
+							</div>
+					</section>
+				</section>
+
+				<section id="conflicts">
+					<section id="conflict_overveiw">
+						<h3>Conflicts</h3>
+						<div style="width: 95%; margin: auto;">
+							<ul>
+								<li>
+									Conflicts can happen if two people are trying to add changes to the same line.
+								</li>
+								<li>
+									git will refuse to overwrite anything and open your editor so you can fix the conflict.
+								</li>
+							</ul>
+							<img class="white" style="width: 45%; margin: auto; margin-top: 2%;" src="./figures/git-conflict.svg"> </img>
+						</div>
+					</section>
+
+					<section id="conflict_example">
+						<h3>An Example</h3>
+						<div style="width: 95%; margin: auto;">
+							<pre><code data-trim data-line-numbers="3|5|7" class="Ruby">
+								Here is some text about Mars.
+								Mars is red.
+								<<<<<<< HEAD
+								I think Elon Musk will land there.
+								=======
+								Elon Musk will never land there.
+								>>>>>>> dabb4c8c450e8475aee9b14b4383acc99f42af1d
+							</code></pre>
+							<ul>
+								<li>
+									Pick the "correct" line and delete the rest. Save the document and try again.
+								</li>
+							</ul>
+							<pre><code data-trim data-line-numbers class="Ruby">
+								Here is some text about Mars.
+								Mars is red.
+								Elon Musk will never land there.
+							</code></pre>
+						</div>
+					</section>
+				</section>
+
+				<!-- slide -->
+				<section>
+					<h1>Thank you</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<!-- Adding plugins -->
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math/math.js', async: true },
+					{ src: 'socket.io/socket.io.js', async: true },
+					{ src: 'plugin/notes-server/client.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

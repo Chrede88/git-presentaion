@@ -7,7 +7,7 @@
 
 		<title>Version Control</title>
 
-		<!--link rel="stylesheet" href="css/reset.css"-->
+		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/dark_texture.css">
 
@@ -684,14 +684,10 @@
 									No need at make a README.md file, we will do that on the commandline.
 								</li>
 							</ul>
+							<img class="white" style="width: 100%; margin: auto; margin-top: 2%" src="./figures/github-repo.png"> </img>
 						</div>
 						<aside class="notes">
 							Head over to Github and create a repository called beer.
-						</aside>
-					</section>
-
-					<section data-background-iframe="https://github.com/" data-background-interactive id="make_repo">
-						<aside class="notes">
 						</aside>
 					</section>
 
@@ -759,9 +755,6 @@
 								</li>
 							</ul>
 						</aside>
-					</section>
-
-					<section data-background-iframe="https://github.com/chrede88" data-background-interactive id="check_publish">
 					</section>
 				</section>
 
@@ -878,6 +871,22 @@
 									<img class="white" style="width: 100%; margin: auto; margin-top: 2%;" src="./figures/github-pullrequest.png"> </img>
 									<!--img class="white" style="width: 100%; margin: auto; margin-top: 2%;" src="./figures/github-pullrequest2.png"> </img-->
 							</div>
+					</section>
+
+					<section id="upstream">
+						<h3>Comments on contributing</h3>
+						<div style="width: 95%; margin: auto;">
+							<p>
+								It's a good idea to add a second "git remote" when contributing to other peoples repositories.
+								Add a remote called <strong>upstream</strong> to the original repository.
+								This way you can easily pull recent changes to your own repository.
+							</p>
+						</div>
+						<div style="width: 115%; margin-left: -5%;">
+							<pre><code data-trim class="zsh">
+								% git remote add upstream https://github.com/&lt;original-user&gt;/somerepo.git
+							</code></pre>
+						</div>
 					</section>
 				</section>
 

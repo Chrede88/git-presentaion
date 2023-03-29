@@ -239,13 +239,14 @@
 							<pre><code data-trim data-line-numbers class="Ruby">
 								% git config --global user.name "JohnDoe"
 								% git config --global user.email "JohnDoe@unknown.com"
-								% git config --global core.editor “code --wait”
+								% git config --global core.editor "code --wait"
 								% git config --global init.defaultBranch main # Github
 								% git config --global core.autocrlf true # Windows
 							</code></pre>
 						</div>
 						<aside class="notes">
-							Windows: If git doesn't work in the command line after intalling, try "Git Bash".
+							Windows: If git doesn't work on the command line after intalling, try "Git Bash".
+							Use the same email as Github.
 						</aside>
 					</section>
 
@@ -507,7 +508,7 @@
 							</ul>
 							<pre><code data-trim data-line-numbers class="Ruby">
 								% git checkout - # only works for a fully detached HEAD
-								% git checkout master # always works
+								% git checkout main # always works
 							</code></pre>
 						</div>
 						<aside class="notes">
@@ -597,10 +598,10 @@
 							<ul>
 								<li>
 									We can create a new branch at any point along the tree.
-									We could go back using <<strong><u>checkout</u></strong> and branch off.
+									We could go back through our tree using <strong><u>checkout</u></strong> and branch off.
 								</li>
 								<li>
-									Let us branch off right here.
+									But let's branch off right here.
 								</li>
 							</ul>
 							<pre><code data-trim data-line-numbers class="Ruby">
@@ -631,17 +632,17 @@
 							<div style="width: 95%; margin-left: auto; margin-right: auto;">
 								<ul>
 									<li>
-										Let us add some more text to volta_brau.txt.
+										Let us add some more text to <strong><u>volta_brau.txt</u></strong>.
 									</li>
 									<li>
-										Let us also create a new text file called 33acres.txt and add  some content to that one.
+										Let us also create a new text file called <strong><u>bbb.txt</u></strong> and add some content to that one.
 									</li>
 								</ul>
 								<pre><code data-trim data-line-numbers class="Ruby">
 									% code volta_brau.txt # open and add more text
 									% code bbb.txt # create new file
 									% git add . # add everyting to the staging area
-									% git commit -em "Adding new file 33acres.txt"
+									% git commit -em "Adding new file bbb.txt"
 								</code></pre>
 								<ul>
 									<li>
@@ -659,7 +660,7 @@
 						<div style="width: 95%; margin-left: auto; margin-right: auto;">
 							<ul>
 								<li>
-									Now that we have added some more content, let us merge more_beer back into master.
+									Now that we have added some more content, let's merge <strong><u>more_beer</u></strong> back into main.
 								</li>
 							</ul>
 							<pre><code data-trim data-line-numbers class="Ruby">
@@ -669,7 +670,7 @@
 							<img class="white" style="width: 55%; margin: auto; margin-top: 2%" src="./figures/git-tree.svg"> </img>
 						</div>
 						<aside class="notes">
-							If we still had some un-commited changes, git would refuse the switch branch. That's nice!:)
+							If we still had some uncommited changes, git would refuse the switch branch. That's nice!:)
 						</aside>
 					</section>
 
@@ -678,7 +679,7 @@
 						<div style="width: 95%; margin-left: auto; margin-right: auto;">
 							<ul>
 								<li>
-									Now that we have merged more_beer into master, we don't need that branch anymore.
+									Now that we have merged <strong><u>more_beer</u></strong> into main, we don't need that branch anymore.
 								</li>
 							</ul>
 							<pre><code data-trim class="Ruby">
@@ -687,7 +688,7 @@
 							<img class="white" style="width: 55%; margin: auto; margin-top: 2%" src="./figures/git-tree-simple.svg"> </img>
 						</div>
 						<aside class="notes">
-							We could leave the branch, but we might as well just create a new one later. Don't get emotionally attached to branch;)
+							We could leave the branch, but we might as well just create a new one later. Don't get emotionally attached to a branch;)
 						</aside>
 					</section>
 				</section>
@@ -727,7 +728,7 @@
 							<pre><code data-trim data-line-numbers class="Ruby">
 								% code README.md # Markdown format
 								% # beer <-- use hashtag for headline
-								% Some desribtion of the repo
+								% Some description of the repo
 							</code></pre>
 							<ul>
 								<li>
@@ -791,10 +792,10 @@
 							<div style="width: 95%; margin-left: auto; margin-right: auto;">
 								<ul>
 									<li>
-										The frist rule of git is: Don't push directly to the main branch!
+										The frist rule of git is: <strong><u>Don't</u></strong> push directly to the main branch!
 									</li>
 									<li>
-										The second rule of git is: Seriously, don't push directly to the main branch.
+										The second rule of git is: Seriously, <strong><u>don't</u></strong> push directly to the main branch.
 									</li>
 									<li>
 										Make a new branch, make sure everyting works and then make a <strong><u>Pull request</u></strong> on Github.
@@ -899,11 +900,11 @@
 							</div>
 					</section>
 
-					<section id="review pullrequst">
+					<section id="review_pullrequst">
 						<h3>Pull Request on Github</h3>
 						<ul>
 							<li>
-								Make a pull request from your main branch to my main branch.
+								Make a pull request from your branch to my main branch.
 							</li>
 						</ul>
 						<div style="width: 95%; margin: auto;">
@@ -923,6 +924,7 @@
 						<div style="width: 115%; margin-left: -5%;">
 							<pre><code data-trim class="zsh">
 								% git remote add upstream https://github.com/&lt;original-user&gt;/somerepo.git
+								% git pull upstream main # pull upstream changes to original repo
 							</code></pre>
 						</div>
 					</section>

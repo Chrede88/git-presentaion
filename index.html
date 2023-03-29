@@ -32,11 +32,13 @@
 				<!-- slide -->
 				<section id="title" data-background-image="./figures/coding4.jpg">
 					<h1>Using git</h1>
-					<p style="font-size: 1em">
-						... it is actually quite clever!
+					<p style="font-size: 1em; color: rgb(27, 220, 20);">
+						<u>... it is actually quite clever!</u>
 					</p>
 					<p style="font-size: 1.2em">
-						<b>Christian Olsen</b> <br></br>
+						<b>Christian Olsen</b>
+					</p>
+					<p>
 						<span style="font-size: 0.7em"> <a href="https://chrede88.github.io/git-presentation/">https://chrede88.github.io/git-presentation/</a> </span>
 					</p>
 					<p>
@@ -45,6 +47,27 @@
 					<aside class="notes">
 						The talk will go through all the steps needed to setup a work repository. Feel free to follow along on your own machines.
 					</aside>
+				</section>
+
+				<!-- slide -->
+				<section id="about">
+					<h3>About this presentation</h3>
+						<div style="width: 95%; margin: auto;">
+							<ul>
+								<li>
+									It's written using <a href="https://revealjs.com">reveal.js</a>. A HTML presentation framework.
+								</li>
+								<li>
+									The arrows in the bottom right shows the possible navigation.
+								</li>
+								<li>
+									Use <strong><u>Esc</u></strong> to get an overview of all slides.
+								</li>
+								<li>
+									Press <strong><u>s</u></strong> for presentation notes in seperate window.
+								</li>
+							</ul>
+						</div>
 				</section>
 
 				<!-- slide -->
@@ -206,7 +229,7 @@
 							</ul>
 							<pre><code data-trim data-line-numbers class="Ruby">
 								% brew install git # macOS
-								% apt-get install git # Ubuntu
+								% apt install git # Ubuntu
 							</code></pre>
 							<ul>
 								<li>
@@ -230,7 +253,7 @@
 						<h3>Setup for other text editors</h3>
 						<div style="width: 100%; margin-left: auto; margin-right: auto;">
 							<pre><code data-trim data-line-numbers class="Ruby">
-								% git config --global core.editor “code --wait”
+								% git config --global core.editor "atom --wait"
 								% git config --global core.editor "'c:/program files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
 								% git config --global core.editor "emacs"
 								% git config --global core.editor "vim"

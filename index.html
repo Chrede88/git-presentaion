@@ -40,7 +40,7 @@
 						<span style="font-size: 0.7em"> <a href="https://chrede88.github.io/git-presentation/">https://chrede88.github.io/git-presentation/</a> </span>
 					</p>
 					<p>
-						April 23rd, 2020
+						April 3rd, 2023
 					</p>
 					<aside class="notes">
 						The talk will go through all the steps needed to setup a work repository. Feel free to follow along on your own machines.
@@ -216,7 +216,8 @@
 							<pre><code data-trim data-line-numbers class="Ruby">
 								% git config --global user.name "JohnDoe"
 								% git config --global user.email "JohnDoe@unknown.com"
-								% git config --global core.editor “atom --wait”
+								% git config --global core.editor “code --wait”
+								% git config --global init.defaultBranch main # Github
 								% git config --global core.autocrlf true # Windows
 							</code></pre>
 						</div>
@@ -229,7 +230,7 @@
 						<h3>Setup for other text editors</h3>
 						<div style="width: 100%; margin-left: auto; margin-right: auto;">
 							<pre><code data-trim data-line-numbers class="Ruby">
-								% git config --global core.editor “atom --wait”
+								% git config --global core.editor “code --wait”
 								% git config --global core.editor "'c:/program files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
 								% git config --global core.editor "emacs"
 								% git config --global core.editor "vim"
@@ -266,7 +267,7 @@
 						% git config --global --list
 						user.name=JohnDoe
 						user.email=JohnDoe@unknown.com
-						core.editor=atom --wait
+						core.editor=code --wait
 					</code></pre>
 					<p>
 						Using a secondary remote git service?
@@ -328,13 +329,13 @@
 						<div style="width: 95%; margin-left: auto; margin-right: auto;">
 							<ul>
 								<li>
-									Let us create a document called <strong>cariboo.txt</strong>.
+									Let us create a document called <strong>volta_brau.txt</strong>.
 								</li>
 							</ul>
 							<pre><code data-trim class="Ruby">
-								% atom cariboo.txt
+								% code volta_brau.txt
 							</code></pre>
-							<img class="white" style="width: 100%; margin: auto;" src="./figures/cariboo.png"> </img>
+							<img class="white" style="width: 100%; margin: auto;" src="./figures/volta_brau.png"> </img>
 						</div>
 						<aside class="notes">
 						</aside>
@@ -353,7 +354,7 @@
 								</li>
 							</ul>
 							<pre><code data-trim data-line-numbers class="Ruby">
-								% git add cariboo.txt # adds one file at a time
+								% git add volta_brau.txt # adds one file at a time
 								% git add . # use . to add all changes
 							</code></pre>
 							<ul>
@@ -378,7 +379,7 @@
 						<h3>Let us commit our changes</h3>
 						<div style="width: 95%; margin-left: auto; margin-right: auto;">
 							<pre><code data-trim class="Ruby">
-								% git commit -m "Adding cariboo.txt"
+								% git commit -m "Adding volta_brau.txt"
 							</code></pre>
 							<ul>
 								<li>
@@ -386,7 +387,7 @@
 								</li>
 								</ul>
 								<pre><code data-trim data-line-numbers class="Ruby">
-									On branch master
+									On branch main
 									nothing to commit, working tree clean
 								</code></pre>
 								<ul>
@@ -442,7 +443,7 @@
 								Author: JohnDoe JohnDoe@unknown.com
 								Date: Thu Jan 1 00:00:00 1970 -0000
 
-									Adding cariboo.txt
+									Adding volta_brau.txt
 							</code></pre>
 						</div>
 						<aside class="notes">
@@ -495,12 +496,12 @@
 						<div style="width: 95%; margin-left: auto; margin-right: auto;">
 							<ul>
 								<li>
-									We can also directly compare the differences between commits, using <strong>diff</strong>.
+									We can also directly compare the differences between commits, using <strong><u>diff</u></strong>.
 								</li>
 							</ul>
 							<pre><code data-trim class="Ruby">
-								% git diff HEAD~1 cariboo.txt
-								% git difftool HEAD~1 cariboo.txt # opens in a diff tool
+								% git diff HEAD~1 volta_brau.txt
+								% git difftool HEAD~1 volta_brau.txt # opens in a diff tool
 							</code></pre>
 							<ul>
 								<li>
@@ -573,7 +574,7 @@
 							<ul>
 								<li>
 									We can create a new branch at any point along the tree.
-									We could go back using <strong>checkout</strong> and branch off.
+									We could go back using <<strong><u>checkout</u></strong> and branch off.
 								</li>
 								<li>
 									Let us branch off right here.
@@ -607,15 +608,15 @@
 							<div style="width: 95%; margin-left: auto; margin-right: auto;">
 								<ul>
 									<li>
-										Let us add some more text to cariboo.txt.
+										Let us add some more text to volta_brau.txt.
 									</li>
 									<li>
 										Let us also create a new text file called 33acres.txt and add  some content to that one.
 									</li>
 								</ul>
 								<pre><code data-trim data-line-numbers class="Ruby">
-									% atom cariboo.txt # open and add more text
-									% atom 33acres.txt # create new file
+									% code volta_brau.txt # open and add more text
+									% code bbb.txt # create new file
 									% git add . # add everyting to the staging area
 									% git commit -em "Adding new file 33acres.txt"
 								</code></pre>
@@ -639,7 +640,7 @@
 								</li>
 							</ul>
 							<pre><code data-trim data-line-numbers class="Ruby">
-								% git checkout master # move back to master
+								% git checkout main # move back to main
 								% git merge more_beer
 							</code></pre>
 							<img class="white" style="width: 55%; margin: auto; margin-top: 2%" src="./figures/git-tree.svg"> </img>
@@ -696,16 +697,18 @@
 						<div style="width: 95%; margin-left: auto; margin-right: auto;">
 							<ul>
 								<li>
-									Create a new file called <strong>README.md</strong>.
+									Create a new file called <strong><u>README.md</u></strong>.
 									Add lines 2 & 3 to the README file.
 								</li>
 							</ul>
 							<pre><code data-trim data-line-numbers class="Ruby">
-								% atom README.md # Markdown format
+								% code README.md # Markdown format
+								% # beer <-- use hashtag for headline
+								% Some desribtion of the repo
 							</code></pre>
 							<ul>
 								<li>
-									Commit your README file to the master branch.
+									Commit your README file to the main branch.
 								</li>
 							</ul>
 							<pre><code data-trim data-line-numbers class="Ruby">
@@ -735,11 +738,11 @@
 							</code></pre>
 							<ul>
 								<li>
-									And now <strong>push</strong> the master branch to your remote repository.
+									And now <strong><u>push</u></strong> the main branch to your remote repository.
 								</li>
 							</ul>
 							<pre><code data-trim class="Ruby">
-								% git push origin master
+								% git push origin main
 							</code></pre>
 						</div>
 						<aside class="notes">
@@ -765,13 +768,13 @@
 							<div style="width: 95%; margin-left: auto; margin-right: auto;">
 								<ul>
 									<li>
-										The frist rule of git is: Don't push directly to the master branch!
+										The frist rule of git is: Don't push directly to the main branch!
 									</li>
 									<li>
-										The second rule of git is: Seriously, don't push directly to the master branch.
+										The second rule of git is: Seriously, don't push directly to the main branch.
 									</li>
 									<li>
-										Make a new branch, make sure everyting works and then make a <strong>Pull request</strong> on Github.
+										Make a new branch, make sure everyting works and then make a <strong><u>Pull request</u></strong> on Github.
 									</li>
 									<li>
 										Let us go through the required steps.
@@ -785,10 +788,10 @@
 							<div style="width: 95%; margin: auto;">
 								<ul>
 									<li>
-										Use <strong>clone</strong> to get a local copy of a remote repository.
+										Use <strong><u>clone</u></strong> to get a local copy of a remote repository.
 									</li>
 									<li>
-										If you are contributing to other peoples projects, you should <strong>fork</strong> their repository first.
+										If you are contributing to other peoples projects, you should <strong><u>fork</u></strong> their repository first.
 									</li>
 								</ul>
 								<img class="white" style="width: 100%; margin: auto; margin-top: 2%;" src="./figures/github-fork.png"> </img>
@@ -809,7 +812,7 @@
 									Find it on Github and fork it, so you have your own copy. My username is <strong>Chrede88</strong>.
 								</li>
 								<li>
-									Once you have forked it, clone your own copy.
+									Once you have forked it, clone it so you can work on it locally.
 								</li>
 							</ul>
 							<pre><code data-trim data-line-numbers class="zsh">
@@ -862,7 +865,7 @@
 											Now your changes are incorporated into your version of CampusCoffee on Github.
 										</li>
 										<li>
-											Make a pull request to the master branch of my repository.
+											Make a pull request (from your repo) to the main branch of my repository.
 										</li>
 										<li>
 											You have now successfully contributed to a project :)
@@ -871,6 +874,18 @@
 									<img class="white" style="width: 100%; margin: auto; margin-top: 2%;" src="./figures/github-pullrequest.png"> </img>
 									<!--img class="white" style="width: 100%; margin: auto; margin-top: 2%;" src="./figures/github-pullrequest2.png"> </img-->
 							</div>
+					</section>
+
+					<section id="review pullrequst">
+						<h3>Pull Request on Github</h3>
+						<ul>
+							<li>
+								Make a pull request from your main branch to my main branch.
+							</li>
+						</ul>
+						<div style="width: 95%; margin: auto;">
+							<img class="white" style="width: 100%; margin: auto; margin-top: 2%;" src="./figures/github-pullrequest-actual.png"> </img>
+						</div>
 					</section>
 
 					<section id="upstream">

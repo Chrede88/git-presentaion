@@ -45,7 +45,7 @@
 						<span style="font-size: 0.7em"> <a href="https://chrede88.github.io/git-presentation/">https://chrede88.github.io/git-presentation/</a> </span>
 					</p>
 					<p>
-						April 3rd, 2023
+						December 21st, 2023
 					</p>
 					<aside class="notes">
 						The talk will go through all the steps needed to setup a work repository. Feel free to follow along on your own machines.
@@ -56,19 +56,10 @@
 					<h3>Last minute install &#128517</h3>
 						<div style="width: 95%; margin: auto;">
 							<div class="container text-center">
-								<div class="row align-items-start">
-								  <div class="col">
-									<u>Linux</u>
-									<pre><code data-trim data-line-numbers class="Ruby">
-										sudo apt install git-all
-									</code></pre>
-								  </div>
-								  <div class="col">
-									<u>Windows</u>
-									<div>
-										Download from <a href=https://git-scm.com/download/win>https://git-scm.com/download/win</a>
+								<div class="row justify-content-center">
+								  <div>
+										Follow instructions here: <br><a href=https://git-scm.com/download>https://git-scm.com/download</a>
 									</div>
-								  </div>
 								</div>
 								<hr>
 								<div class="row justify-content-center">
@@ -123,7 +114,7 @@
 										"global information tracker" - when things are working well.
 									</li>
 									<li>
-										"goddamn idiotic truckload of shit" - when it isn't!
+										"goddamn idiotic truckload of shit" - when it aren't!
 									</li>
 								</ul>
 							</li>
@@ -488,6 +479,7 @@
 							</ul>
 							<pre><code data-trim class="Ruby">
 								% git log # prints the log
+								% git log -n 2 # prints the last 2 commit logs
 							</code></pre>
 							<ul>
 								<li>
@@ -616,7 +608,7 @@
 							</p>
 							<img class="white" style="width: 55%; margin: auto; margin-top: 2%" src="./figures/git-tree.svg"> </img>
 							<p style="font-size:0.5em;">
-								Our three past commits along the Master branch. And a new branch in magenta.
+								Our three past commits along the main branch. And a new branch in magenta.
 							</p>
 						</div>
 						<aside class="notes">
@@ -898,7 +890,7 @@
 						<h3>Full command tree</h3>
 						<div style="width: 95%; margin: auto;">
 								<p>
-									In case you forgot ;)
+									In case you forgot &#128521
 								</p>
 								<pre><code data-trim data-line-numbers class="Ruby">
 									% git checkout -b &lt;newbranch&gt; # make new branch

@@ -18,8 +18,8 @@
         <g transform="matrix(0.798789,0,0,2.76605,1248.98,-464.614)">
             <ellipse cx="191.602" cy="726.246" rx="49.929" ry="49.07" style="fill:rgb(45,34,255);stroke:black;stroke-width:4.17px;"/>
         </g>
-        <g transform="matrix(0.798789,0,0,2.76605,1357.32,-86.2089)">
-            <text x="35.968px" y="697.952px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">Master</text>
+        <g transform="matrix(0.798789,0,0,2.76605,1386.05,1844.36)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">main</text>
         </g>
     </g>
 </svg>

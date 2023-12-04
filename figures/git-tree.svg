@@ -30,27 +30,31 @@
         <g transform="matrix(0.762079,0,0,2.76605,1171.51,-823.773)">
             <ellipse cx="191.602" cy="726.246" rx="49.929" ry="49.07" style="fill:rgb(222,34,255);stroke:black;stroke-width:4.17px;"/>
         </g>
-        <g transform="matrix(0.762079,0,0,2.76605,1683.48,148.303)">
-            <text x="35.968px" y="697.952px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">Master</text>
+        <g transform="matrix(0.762079,0,0,2.76605,1710.89,2078.87)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">main</text>
         </g>
-        <g transform="matrix(0.762079,0,0,2.76605,736.939,-730.631)">
-            <text x="35.968px" y="697.952px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">more_beer</text>
+        <g transform="matrix(0.762079,0,0,2.76605,764.349,1199.94)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">more_beer</text>
         </g>
         <g transform="matrix(0.762079,0,0,2.76605,1457.93,-814.819)">
-            <text x="35.968px" y="697.952px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">Merge back</text>
-            <text x="35.968px" y="749.588px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">into Master</text>
+            <g transform="matrix(1,0,0,1,35.968,697.952)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">Merge back</text>
+            </g>
+            <g transform="matrix(1,0,0,1,35.968,749.588)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:50px;">into main</text>
+            </g>
         </g>
         <g transform="matrix(0.762079,0,0,2.76605,489.705,166.656)">
             <path d="M920.458,368.179L1036.34,368.179" style="fill:none;stroke:black;stroke-width:4.17px;"/>
         </g>
-        <g transform="matrix(0.762079,0,0,2.76605,495.04,166.656)">
-            <g transform="matrix(1,-0,-0,1,6.66527,288.416)">
+        <g transform="matrix(0.762079,0,0,2.76605,500.119,964.429)">
+            <g>
                 <path d="M629.526,160.907L642.684,185.567L615.061,181.298C623.775,179.816 631.007,169.621 629.526,160.907Z"/>
                 <path d="M536.442,110.199C536.442,110.199 596.589,152.868 626.371,173.995" style="fill:none;stroke:black;stroke-width:4.17px;"/>
             </g>
         </g>
-        <g transform="matrix(0.762079,0,0,4.03317,495.04,-438.884)">
-            <g transform="matrix(1,-0,-0,0.685824,6.66527,347.943)">
+        <g transform="matrix(0.762079,0,0,2.76604,500.119,964.429)">
+            <g>
                 <path d="M1318.95,205.287L1292.81,215.175L1300.59,188.328C1300.94,197.159 1310.12,205.639 1318.95,205.287Z"/>
                 <path d="M1372.53,128.833C1372.53,128.833 1329.13,175.834 1306.38,200.481" style="fill:none;stroke:black;stroke-width:4.17px;"/>
             </g>
